@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Dev Servers (All)",
+      "dependsOn": [
+        "Start Backend Server",
+        "Start Frontend Server"
+      ],
+      "dependsOrder": "parallel",
+      "problemMatcher": [],
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "Start Backend Server",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/backend"
+      },
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "group": "servers"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Start Frontend Server",
+      "type": "shell",
+      "command": "npm run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "group": "servers"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
