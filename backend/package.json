@@ -1,0 +1,28 @@
+{
+  "name": "portafolio-backend",
+  "version": "1.0.0",
+  "description": "Backend API & AdminJS para el portafolio de Claudio Salazar",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:studio": "prisma studio"
+  },
+  "keywords": [],
+  "author": "Claudio Salazar",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@adminjs/express": "^6.1.1",
+    "@adminjs/prisma": "^5.0.4",
+    "@prisma/client": "^6.19.2",
+    "adminjs": "^7.8.17",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "prisma": "^6.19.2"
+  }
+}

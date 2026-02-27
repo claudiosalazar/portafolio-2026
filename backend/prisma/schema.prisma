@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Modelo: Admin (Autenticación del panel AdminJS) ─────────────────────────
+model Admin {
+  id            Int      @id @default(autoincrement())
+  email         String   @unique @db.VarChar(255)
+  password_hash String   @db.VarChar(255)
+
+  @@map("admins")
+}
+
+// ─── Modelo: Project (Proyectos del portafolio) ──────────────────────────────
+model Project {
+  id                Int      @id @default(autoincrement())
+  created_at        DateTime @default(now())
+  title             String   @db.VarChar(255)
+  slug              String   @unique @db.VarChar(255)
+  short_description String   @db.VarChar(500)
+  content           String   @db.LongText
+  cover_image       String   @db.VarChar(500)
+  technologies      Json
+  live_url          String?  @db.VarChar(500)
+
+  @@map("projects")
+}
+
+// ─── Modelo: Section (Contenido estático editable) ───────────────────────────
+model Section {
+  id        Int      @id @default(autoincrement())
+  slug      String   @unique @db.VarChar(255)
+  title     String   @db.VarChar(255)
+  body      String   @db.LongText
+  image_url String?  @db.VarChar(500)
+
+  @@map("sections")
+}

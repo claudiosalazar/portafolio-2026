@@ -1,0 +1,29 @@
+@use "@/styles/variables" as *;
+@use "@/styles/mixins" as *;
+@use "sass:color";
+
+.main {
+  @include container;
+  @include flex-center;
+  min-height: 100vh;
+}
+
+.heroSection {
+  text-align: center;
+  
+  h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: $color-secondary;
+
+    @include responder-a('desktop') {
+      font-size: 6rem;
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+    color: color.adjust($color-primary, $lightness: 60%);
+  }
+}

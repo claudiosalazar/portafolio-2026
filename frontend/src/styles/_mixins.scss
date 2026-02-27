@@ -1,0 +1,32 @@
+@use "variables" as *;
+@use "sass:map";
+
+// Mixin para Media Queries
+@mixin responder-a($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "No se encontró el breakpoint `#{$breakpoint}` en \$breakpoints.";
+  }
+}
+
+// Mixin para Flexbox centrado
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Mixin para Containers
+@mixin container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @include responder-a('tablet') {
+    padding: 0 2rem;
+  }
+}

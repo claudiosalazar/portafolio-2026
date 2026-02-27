@@ -1,0 +1,68 @@
+# =========================================
+# Sistema Operativo (macOS)
+# =========================================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+/docs/*.txt
+
+# =========================================
+# Dependencias (Node.js para Backend y Frontend)
+# =========================================
+node_modules/
+package-lock.json
+# (Opcional: Descomenta la línea de arriba si prefieres usar yarn o pnpm en lugar de npm)
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+pnpm-debug.log
+
+# =========================================
+# Frontend: Next.js & React
+# =========================================
+/frontend/.next/
+/frontend/out/
+/frontend/build/
+.next/
+out/
+build/
+# Archivos de caché de Next.js
+.tsbuildinfo
+next-env.d.ts
+
+# =========================================
+# Variables de Entorno (¡CRÍTICO PARA SEGURIDAD!)
+# =========================================
+# Aquí estarán tus credenciales de MariaDB de NameHero. NUNCA deben subirse a GitHub.
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# =========================================
+# Backend: AdminJS y Subidas de Archivos
+# =========================================
+# Si configuras AdminJS para subir imágenes de tu portafolio localmente antes de pasarlas a producción
+/backend/uploads/
+/backend/public/uploads/
+
+# =========================================
+# Editores de Código (VS Code, etc.)
+# =========================================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
