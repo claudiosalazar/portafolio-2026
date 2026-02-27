@@ -13,9 +13,9 @@ Este es un Monorepo con una arquitectura estrictamente desacoplada:
 
 ## 📂 3. Estructura del Monorepo
 * `/backend`: Contiene la lógica de Node.js, configuración de AdminJS y conexión a MariaDB.
-<!-- * `/backend/.agents/skills/`: Skills específicos del backend (ej. `adminjs-resource`). -->
+* `/backend/.agents/skills/`: Skills específicos del backend (ej. `adminjs-resource`).
 * `/frontend`: Contiene la aplicación Next.js, SCSS Modules y animaciones GSAP.
-<!-- * `/frontend/.agents/skills/`: Skills específicos del frontend (ej. `gsap-animations`, `scss-layout`, `scss-best-practices`). -->
+* `/frontend/.agents/skills/`: Skills específicos del frontend (ej. `gsap-animations`, `scss-layout`, `scss-best-practices`).
 * `/docs`: Contiene el `API_CONTRACT.md` (Esquemas JSON de cómo se comunican el Backend y Frontend).
 
 ## 🚫 4. Reglas Estrictas (Boundaries)
@@ -39,3 +39,4 @@ Antes de escribir código complejo, revisa la carpeta de skills correspondiente 
 
 ### Backend (`/backend/.agents/skills/`)
 * Consulta `adminjs-resource` para ver cómo configurar recursos (modelos) en el panel de AdminJS.
+* Consulta `api-endpoint` para ver el patrón estándar de creación de rutas, controladores, servicios y validadores.

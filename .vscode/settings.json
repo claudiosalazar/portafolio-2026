@@ -1,0 +1,13 @@
+{
+  // Excluye node_modules de las búsquedas globales (el explorador los sigue mostrando).
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.adminjs": true
+  },
+  // Impide que el servidor TypeScript analice ni muestre errores
+  // en archivos dentro de node_modules, dist y .adminjs.
+  "typescript.tsserver.watchOptions": {
+    "excludeDirectories": ["**/node_modules", "**/dist", "**/.adminjs"]
+  }
+}
