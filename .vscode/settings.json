@@ -1,13 +1,61 @@
 {
-  // Excluye node_modules de las búsquedas globales (el explorador los sigue mostrando).
+  // ─── Archivos ocultos del explorador ─────────────────────────────────────
+  // node_modules es VISIBLE, solo se ocultan artefactos de build y sesiones.
+  "files.exclude": {
+    "**/dist": true,
+    "**/.adminjs": true,
+    "**/.next": true,
+    "**/sessions": true
+  },
+
+  // ─── Protección node_modules ──────────────────────────────────────────────
+  // Visible en el explorador pero de solo-lectura para evitar ediciones accidentales.
+  "files.readonlyInclude": {
+    "**/node_modules/**": true
+  },
+
+  // ─── Rendimiento: no vigilar estas carpetas ───────────────────────────────
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/.adminjs/**": true,
+    "**/.next/**": true,
+    "**/sessions/**": true
+  },
+
+  // ─── Búsqueda: excluir carpetas de dependencias y build ───────────────────
   "search.exclude": {
     "**/node_modules": true,
     "**/dist": true,
-    "**/.adminjs": true
+    "**/.adminjs": true,
+    "**/.next": true,
+    "**/sessions": true
   },
-  // Impide que el servidor TypeScript analice ni muestre errores
-  // en archivos dentro de node_modules, dist y .adminjs.
+
+  // ─── Asociaciones de lenguaje ─────────────────────────────────────────────
+  // Los tsconfig.json dentro de node_modules se abren como JSON puro, no como
+  // "proyecto TypeScript". Esto evita que el servidor TS los tome como raíz
+  // de proyecto y reporte errores por tipos faltantes de esas librerías.
+  "files.associations": {
+    "**/node_modules/**/tsconfig*.json": "json",
+    "**/node_modules/**/jsconfig*.json": "json"
+  },
+
+  // ─── Servidor TypeScript: suprimir diagnósticos de node_modules ───────────
+  // 1. No crea proyectos inferidos para archivos abiertos fuera del workspace.
+  // 2. No emite diagnósticos de fondo (push) para proyectos no activos.
+  // 3. No adquiere @types automáticamente para proyectos inferidos.
+  // 4. No vigila directorios de dependencias en busca de cambios.
+  "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "js/ts.implicitProjectConfig.checkJs": false,
   "typescript.tsserver.watchOptions": {
-    "excludeDirectories": ["**/node_modules", "**/dist", "**/.adminjs"]
+    "excludeDirectories": [
+      "**/node_modules",
+      "**/dist",
+      "**/.adminjs",
+      "**/.next",
+      "**/sessions"
+    ]
   }
 }

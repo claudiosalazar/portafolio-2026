@@ -8,10 +8,18 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'api.claudiosalazar.cl',
-        port: '',
-        pathname: '/**',
+        // Producción
+        protocol: "https",
+        hostname: "api.claudiosalazar.cl",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        // Desarrollo local
+        protocol: "http",
+        hostname: "localhost",
+        port: "5001",
+        pathname: "/images/**",
       },
     ],
   },

@@ -51,6 +51,7 @@ next-env.d.ts
 # Si configuras AdminJS para subir imágenes de tu portafolio localmente antes de pasarlas a producción
 /backend/uploads/
 /backend/public/uploads/
+/backend/sessions/
 
 # =========================================
 # Editores de Código (VS Code, etc.)

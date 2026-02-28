@@ -25,10 +25,15 @@ model Project {
   created_at        DateTime @default(now())
   title             String   @db.VarChar(255)
   slug              String   @unique @db.VarChar(255)
+  project_type      String   @default("development") @db.VarChar(20)
   short_description String   @db.VarChar(500)
   content           String   @db.LongText
-  cover_image       String   @db.VarChar(500)
-  technologies      Json
+  image_1           String?  @db.VarChar(500)
+  image_2           String?  @db.VarChar(500)
+  image_3           String?  @db.VarChar(500)
+  image_4           String?  @db.VarChar(500)
+  image_5           String?  @db.VarChar(500)
+  technologies      String   @default("") @db.Text
   live_url          String?  @db.VarChar(500)
 
   @@map("projects")
@@ -43,4 +48,31 @@ model Section {
   image_url String?  @db.VarChar(500)
 
   @@map("sections")
+}
+
+// ─── Modelo: MenuItem (Menú de navegación principal) ─────────────────────────
+model MenuItem {
+  id           Int     @id @default(autoincrement())
+  label        String  @db.VarChar(255)
+  url          String  @db.VarChar(255)
+  image_url    String? @db.VarChar(500)
+  order        Int     @default(0)
+  is_active    Boolean @default(true)
+  // Si no es null, este ítem fue auto-creado desde una Section y se sincroniza con ella.
+  source_slug  String? @unique @db.VarChar(255)
+
+  @@map("menu_items")
+}
+
+// ─── Modelo: FooterBlock (Bloques de contenido del footer) ───────────────────
+model FooterBlock {
+  id        Int     @id @default(autoincrement())
+  group     String  @db.VarChar(100)
+  label     String  @db.VarChar(255)
+  url       String? @db.VarChar(500)
+  icon      String? @db.VarChar(100)
+  order     Int     @default(0)
+  is_active Boolean @default(true)
+
+  @@map("footer_blocks")
 }

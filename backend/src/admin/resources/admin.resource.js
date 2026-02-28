@@ -23,7 +23,7 @@ async function hashPasswordHook(request) {
 
 /** @type {import('adminjs').ResourceOptions} */
 export const AdminResourceOptions = {
-  navigation: { name: "Administración", icon: "Shield" },
+  navigation: false,
   listProperties: ["id", "email"],
   filterProperties: ["email"],
   properties: {
